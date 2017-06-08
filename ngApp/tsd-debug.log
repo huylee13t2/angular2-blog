@@ -1,0 +1,36 @@
+[ERR!] cwd  : /home/asus/HuyLee/myproject/angular2/demo/blog/tutorial/ngApp
+[ERR!] os   : Linux 4.4.0-77-generic
+[ERR!] argv : "/usr/bin/nodejs" "/usr/bin/tsd" "query" "angularjs/"
+[ERR!] node : v7.7.3
+[ERR!] tsd  : 0.6.5
+[ERR!] Error: EACCES: permission denied, open '/home/asus/.config/configstore/update-notifier-tsd.yml'
+You don't have access to this file.
+
+[ERR!] CODE : EACCES
+[ERR!] Error: EACCES: permission denied, open '/home/asus/.config/configstore/update-notifier-tsd.yml'
+You don't have access to this file.
+
+[ERR!] 
+Please try running this command again as root/Administrator.
+[ERR!] 
+Error: EACCES: permission denied, open '/home/asus/.config/configstore/update-notifier-tsd.yml'
+You don't have access to this file.
+
+    at Object.fs.openSync (fs.js:583:18)
+    at Object.fs.readFileSync (fs.js:490:33)
+    at Configstore.get (/usr/lib/node_modules/tsd/node_modules/configstore/index.js:34:29)
+    at Configstore (/usr/lib/node_modules/tsd/node_modules/configstore/index.js:27:44)
+    at new UpdateNotifier (/usr/lib/node_modules/tsd/node_modules/update-notifier/index.js:25:17)
+    at module.exports (/usr/lib/node_modules/tsd/node_modules/update-notifier/index.js:118:23)
+    at /usr/lib/node_modules/tsd/build/tsd/cli/update.js:35:20
+    at tryCatch2 (/usr/lib/node_modules/tsd/node_modules/bluebird/js/main/util.js:73:19)
+    at Promise$_resolveFromResolver [as _resolveFromResolver] (/usr/lib/node_modules/tsd/node_modules/bluebird/js/main/promise.js:595:13)
+    at new Promise (/usr/lib/node_modules/tsd/node_modules/bluebird/js/main/promise.js:87:37)
+
+[ERR!] tsd.json could not be retrieved
+
+[ERR!] .tsdrc could not be retrieved
+
+[ERR!] Please include the following file with any support request:
+    /home/asus/HuyLee/myproject/angular2/demo/blog/tutorial/ngApp/tsd-debug.log
+

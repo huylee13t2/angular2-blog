@@ -1,0 +1,33 @@
+<div class="headerContainer">
+	<div class="container">
+		<nav class="navbar navbar-inverse">
+			<div class="navbar-header">
+				<a class="navbar-brand" routerLink="/" >BLOG</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li class="active"><a routerLink="/" >Home</a></li>
+				<li class="active"><a routerLink="/friends" >Friends</a></li>
+				<li class="active"><a routerLink="/shop" >Shop</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right" *ngIf="!currentUser">
+				<li><a [routerLink]="['/register']"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+				<li><a [routerLink]="['/login']"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+				<!-- <a (click)="loginGoogle('google')" class="btn btn-danger ">Google</a> -->
+			</ul>
+			<ul class="nav navbar-nav navbar-right" *ngIf="currentUser">
+				<li *ngIf="currentUser">
+					<a [routerLink]="['/profile']" style="padding: 0 15px;">
+						<div id="avt_profile">
+							<img *ngIf="data.image_name" class="img-circle" src="assets/images/{{data.image_name}}">
+							<img *ngIf="!data.image_name" class="img-circle" src="assets/images/avatar/avt2.jpg">
+						</div> 
+						{{currentUser.username}}
+					</a>
+				</li>
+				<li><a [routerLink]="['/login']"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+			</ul>
+		</nav>
+	</div>
+</div>
+
+<router-outlet></router-outlet>

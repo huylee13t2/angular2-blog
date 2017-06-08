@@ -1,0 +1,55 @@
+<div class="homeContainer">
+	<div class="container">
+		<div class="homeContent">
+			<div ngClass="allBlogs">
+				<div class="add_shop">
+					<h3>New product</h3>
+					<div class="form-group">
+						<label>Name</label>
+						<input class="form-control" type="text" name="name" [(ngModel)]='items.title' >
+					</div>
+					<div class="form-group">
+						<label>Price</label>
+						<input class="form-control" type="number" name="price" [(ngModel)]='items.price' >
+					</div>
+					<div class="form-group">
+						<label>Total</label>
+						<select class="form-control" name="total" [(ngModel)]="items.total" >
+							<option value="10">10</option>
+							<option value="50">50</option>
+							<option value="100">100</option>
+							<option value="150">150</option>
+							<option value="200">200</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label>Picture</label>
+						<!-- <image-upload
+						[max]="1"
+						[url]="'http://127.0.0.1:2000/shop/file/upload/'"
+						[headers]="[
+						{header: 'Authorization', value: 'MyToken'}
+						]"
+						[buttonCaption]="'Select Images!'"
+						[dropBoxMessage]="'Drop your images here!'"
+						(onFileUploadFinish)="imageUploaded($event)"
+						(onRemove)="imageRemoved($event)"
+						></image-upload> -->
+						<input class="form-control" type="file" (change)="onChange($event)"/>
+					</div>
+					<div class="form-group">
+						<label>Category</label>
+						<select class="form-control" name="category" [(ngModel)]="items.category" >
+							<option value="{{cate.id}}" *ngFor="let cate of list"  >{{cate.title}}</option>
+						</select>
+					</div>
+					<div class="form-group" style="text-align: center;">
+						<button class="btn btn-primary" (click)="create()" >Create</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<simple-notifications [options]="options" ></simple-notifications>

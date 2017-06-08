@@ -1,0 +1,9 @@
+.add_shop{
+	width: 40%;
+	margin: 0 auto;
+}
+.add_shop > h3{
+	text-align: center;
+	font-weight: bold;
+	color: #F9A825;
+}

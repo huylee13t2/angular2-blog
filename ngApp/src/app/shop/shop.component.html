@@ -1,0 +1,35 @@
+<div class="homeContainer">
+	<div class="container">
+		<div class="homeContent">
+			<div class="allBlogs">
+				<!-- <a (click)="loginGoogle()" class="btn btn-danger pull-left">Google</a> -->
+				<button class="btn btn-primary pull-right" [routerLink]="['/shop/create']"><i class="glyphicon glyphicon-plus"></i> New</button>
+				<div *ngFor="let items of data" ngClass="category">
+					<h3 class="title"><span><i class="glyphicon glyphicon-tags"></i>{{items.category.title}}</span></h3>
+					<div class="row product">
+						<div *ngFor="let pr of items.product" class="col-md-4" style="margin-top: 15px; margin-bottom: 15px;">
+							<div class="items">
+								<div class="img">
+									<img src="assets/images/{{pr.image_name}}" class="img-thumbnail">
+								</div>
+								<div class="content">
+									<h3 class="title"><i class="glyphicon glyphicon-tag" style="font-size: 14px; margin-right: 0;"></i> {{pr.title}}</h3>
+									<p class="price"><i class="glyphicon glyphicon-usd"></i> {{pr.price}}</p>
+									<p class="total"><i class="glyphicon glyphicon-check"></i> {{pr.total}}</p>
+									<a class="user" [routerLink]="['/profiles', pr.created_by_id]" ><i class="glyphicon glyphicon-user"></i> {{pr.created_by}}</a>
+									<a class="like" (click)='likeProduct(pr.id)' ><i class="glyphicon glyphicon-heart" style="color: #ff068c;"></i></a>
+								</div>
+								<div class="buy">
+									<a *ngIf="currentUser.id != pr.created_by_id" class="btn_buy" [routerLink]="['/shop/buy', pr.id]"><i class="glyphicon glyphicon-shopping-cart"></i></a>
+									<a *ngIf="currentUser.id == pr.created_by_id" class="btn_buy" [routerLink]="['/shop/edit', pr.id]"><i class="glyphicon glyphicon-edit"></i></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<simple-notifications [options]="options" ></simple-notifications>

@@ -1,0 +1,28 @@
+<div class="homeContainer">
+	<div class="container">
+		<div class="homeContent">
+			<div ngClass="allBlogs">
+				<button [routerLink]="['/friends/add']"  class="btn btn-primary"><i class="glyphicon glyphicon-plus" style="padding-right: 7px;"></i>Add friend</button>
+				<div class="row">
+					<div class="col-md-4" *ngFor="let fr of friends" style="margin: 15px 0;">
+						<div style="border: 1px solid #ccc;">
+							<div class="media">
+								<div class="media-left">
+									<img *ngIf="fr.image_name != None" src="assets/images/{{fr.image_name}}" class="media-object img-thumbnail" style="width:100px; height: 100px;">
+									<img *ngIf="fr.image_name == None" src="assets/images/avt2.jpg" class="media-object img-thumbnail" style="width:100px; height: 100px;">
+								</div>
+								<div class="media-body" style="padding: 10px;">
+									<h3 style="margin: 0; padding-bottom: 5px; display: inline-block;"><a [routerLink]="['/profiles', fr.friend_id]" >{{fr.friend}}</a></h3>
+									<button class="btn btn-danger pull-right" style=" border-radius: 50%; width: 30px; height: 30px; padding: 5px 8px;" (click)="unfriend(fr.id)" ><i class="glyphicon glyphicon-remove" style=" "></i></button>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</div>	
+		</div>
+	</div>
+</div>
+
+<simple-notifications [options]="options" ></simple-notifications>
