@@ -6,8 +6,8 @@
 			</div>
 			<ul class="nav navbar-nav">
 				<li class="active"><a routerLink="/home" >Home</a></li>
-				<li class="active"><a routerLink="/friends" >Friends</a></li>
-				<li class="active"><a routerLink="/shop" >Shop</a></li>
+				<li class="active"><a routerLink="/my-friend" >Friends</a></li>
+				<li class="active"><a routerLink="/my-shop" >Shop</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right" *ngIf="!currentUser">
 				<li><a [routerLink]="['/register']"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
@@ -18,8 +18,8 @@
 				<li *ngIf="currentUser">
 					<a [routerLink]="['/profile']" style="padding: 0 15px;">
 						<div id="avt_profile">
-							<img *ngIf="data.image_name" class="img-circle" src="assets/images/{{data.image_name}}">
-							<img *ngIf="!data.image_name" class="img-circle" src="assets/images/avatar/avt2.jpg">
+							<img *ngIf="data.image_name" class="img-circle" src="static/dist/assets/images/{{data.image_name}}">
+							<img *ngIf="!data.image_name" class="img-circle" src="static/dist/assets/images/avatar/avt2.jpg">
 						</div> 
 						{{currentUser.username}}
 					</a>

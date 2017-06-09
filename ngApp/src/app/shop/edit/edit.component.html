@@ -5,7 +5,7 @@
 				<form #f="ngForm">
 					<div class="product">
 						<div class="col-md-3">
-							<img src="assets/images/{{product.image_name}}" class="img-thumbnail">
+							<img src="static/dist/assets/images/{{product.image_name}}" class="img-thumbnail">
 							<div class="form-group">
 								<label>Change Picture</label>
 								<input class="form-control" type="file" (change)="onChange($event)"/>
@@ -33,7 +33,7 @@
 							<hr>
 							<button *ngIf="currentUser.id == product.user_id" class="btn btn-primary pull-left" (click)="save(product.id)" >Save</button>
 							<button style="margin-left: 15px;" *ngIf="currentUser.id == product.user_id" class="btn btn-danger" (click)="deleted(product.id)" >Delete</button>
-							<a *ngIf="currentUser.id == product.user_id" class="btn btn-danger pull-right" [routerLink]="['/shop']">Back</a>
+							<a *ngIf="currentUser.id == product.user_id" class="btn btn-danger pull-right" [routerLink]="['/my-shop']">Back</a>
 						</div>
 					</div>
 				</form>

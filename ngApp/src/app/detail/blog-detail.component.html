@@ -5,7 +5,7 @@
 				<div class="row">
 					<div class="col-md-3">
 						<div class="imgBlog">
-							<img src="assets/images/{{blog?.image}}" class="img-thumbnail">
+							<img src="static/dist/assets/images/{{blog?.image}}" class="img-thumbnail">
 						</div>
 						<div [hidden]="check" class="change_avt">
 							<input type="file" (change)="onChange($event)" />
@@ -32,8 +32,8 @@
 				<h3>Comment</h3>
 				<div class="form-group" style="overflow: hidden;">
 					<div style="width: 71px; height: 71px; border-radius: 50%; float: left;">
-						<img style="width: 100%; height: 100%;" *ngIf="user.image_name" class="img-circle" src="assets/images/{{user.image_name}}">
-						<img style="width: 100%; height: 100%;" *ngIf="!user.image_name" class="img-circle" src="assets/images/avatar/avt2.jpg">
+						<img style="width: 100%; height: 100%;" *ngIf="user.image_name" class="img-circle" src="static/dist/assets/images/{{user.image_name}}">
+						<img style="width: 100%; height: 100%;" *ngIf="!user.image_name" class="img-circle" src="static/dist/assets/images/avatar/avt2.jpg">
 					</div>
 					<div style="width: 93%; float: right; position: relative;">
 						<textarea class="form-control" rows="3" [(ngModel)] = "user.comment" style="width: 100%; float: left; position: relative; padding-right: 75px;" placeholder="What are you thinking?"></textarea>
@@ -45,7 +45,7 @@
 				<h3>All comment</h3>
 				<div class="media"  *ngFor="let cmt of list_comment">
 					<div class="media-left">
-						<img src="assets/images/{{cmt.image_name}}" class="media-object" style="width:50px; height: 50px;">
+						<img src="static/dist/assets/images/{{cmt.image_name}}" class="media-object" style="width:50px; height: 50px;">
 					</div>
 					<div class="media-body" style="padding-left: 5px; border-left: 2px solid #fff;">
 						<h4 class="media-heading">
@@ -64,8 +64,8 @@
 						<!-- content reply -->
 						<div class="content_reply media"  *ngFor="let obj of cmt.reply">
 							<div class="media-left">
-								<img *ngIf="obj.image_name" src="assets/images/{{obj.image_name}}" class="media-object" style="width:50px; height: 50px;">
-								<img *ngIf="!obj.image_name" src="assets/images/avt2.jpg" class="media-object" style="width:50px; height: 50px;">
+								<img *ngIf="obj.image_name" src="static/dist/assets/images/{{obj.image_name}}" class="media-object" style="width:50px; height: 50px;">
+								<img *ngIf="!obj.image_name" src="static/dist/assets/images/avt2.jpg" class="media-object" style="width:50px; height: 50px;">
 							</div>
 							<div class="media-body">
 								<h4 class="media-heading">
@@ -84,8 +84,8 @@
 						</div>
 						<!-- reply -->
 						<div class="media-left my_reply{{cmt.id}} display_none">
-							<img *ngIf="user.image_name" src="assets/images/{{cmt.image_name}}" class="media-object" style="width:50px; height: 50px;">
-							<img *ngIf="!user.image_name" src="assets/images/avt2.jpg" class="media-object" style="width:50px; height: 50px;">
+							<img *ngIf="user.image_name" src="static/dist/assets/images/{{cmt.image_name}}" class="media-object" style="width:50px; height: 50px;">
+							<img *ngIf="!user.image_name" src="static/dist/assets/images/avt2.jpg" class="media-object" style="width:50px; height: 50px;">
 						</div>
 						<div class="media-body my_reply{{cmt.id}} display_none" style="position: relative;">
 							<textarea class="form-control" rows="2"  [(ngModel)]="rp" style="width: 100%; position: relative; padding-right: 75px;" placeholder=""></textarea>

@@ -56,32 +56,32 @@ const routes: Routes = [
         canActivate: [AuthGuard]
     },
     {
-        path: 'friends',
+        path: 'my-friend',
         component: FriendsComponent,
         canActivate: [AuthGuard]
     },
     {
-        path: 'friends/add',
+        path: 'my-friend/add',
         component: FriendsAddComponent,
         canActivate: [AuthGuard]
     },
     {
-        path: 'shop',
+        path: 'my-shop',
         component: ShopComponent,
         canActivate: [AuthGuard]
     },
     {
-        path: 'shop/create',
+        path: 'my-shop/create',
         component: ShopCreateComponent,
         canActivate: [AuthGuard]
     },
     {
-        path: 'shop/buy/:id',
+        path: 'my-shop/buy/:id',
         component: ShopBuyComponent,
         canActivate: [AuthGuard]
     },
     {
-        path: 'shop/edit/:id',
+        path: 'my-shop/edit/:id',
         component: ShopEditComponent,
         canActivate: [AuthGuard]
     },

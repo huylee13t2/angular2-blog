@@ -7,22 +7,22 @@
 					<div class="row">
 						<div class="col-md-3">
 							<div class="imgBlog">
-								<img src="assets/images/{{blog.image}}" class="img-thumbnail">
+								<img src="static/dist/assets/images/{{blog.image}}" class="img-thumbnail">
 							</div>
 						</div>
 						<div class="col-md-9">
 							<h2 class="title" ngClass="blogTitle" style="margin: 0; padding-bottom: 15px;">
 								<a [routerLink]="['/blogs', blog.id]" >{{blog.title}}</a>
 							</h2>
-							<star-rating-comp   [starType]="'svg'" 
+							<!-- <star-rating-comp   [starType]="'svg'" 
 								[id]="blog.id"
 								[hoverEnabled]="true"
 								[rating]="blog.rating"                            
 								(onClick)="onClick($event, blog.id)" 
 								(onRatingChange)="onRatingChange($event)"
 								(onHoverRatingChange)="onHoverRatingChange($event)">
-							</star-rating-comp>
-							<p style="margin: 0; color: #286090; font-style: italic; display: inline-block; margin-left: 15px;">
+							</star-rating-comp> -->
+							<p style="margin: 0; color: #286090; font-style: italic; display: inline-block;">
 								Author: {{blog.created_by}}  
 								<small style="color: #aaa">  Updated: {{blog.updated |date:'dd/MM/yyyy h:mma'}}</small>
 							</p>
