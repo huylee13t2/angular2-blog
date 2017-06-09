@@ -5,9 +5,10 @@ webpackJsonp([1,4],{
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise__ = __webpack_require__(226);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_toPromise__ = __webpack_require__(226);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_toPromise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_toPromise__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BlogService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -21,14 +22,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var BlogService = (function () {
-    function BlogService(http) {
+    function BlogService(http, location) {
         this.http = http;
-        this.headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]({
+        this.headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["Headers"]({
             'Content-Type': 'application/json; charset=utf-8',
         });
-        this.url_http = 'http://127.0.0.1:2000/';
+        // private url_http = 'http://127.0.0.1:2000/';
         this.urlAllBlog = this.url_http + '/blogs/all-blogs';
+        this.url_http = window.location.origin + '/';
+        console.log(this.url_http);
     }
     // loginGoogle
     BlogService.prototype.loginGoogle = function () {
@@ -206,10 +210,10 @@ var BlogService = (function () {
         // create authorization header with jwt token
         var currentUser = JSON.parse(localStorage.getItem('currentUser'));
         if (currentUser && currentUser.token) {
-            var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
+            var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["Headers"]();
             headers.append('Authorization', 'Bearer' + currentUser.token);
             headers.append('aaaaaaaa', 'aaaaaaaaaaa');
-            var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["RequestOptions"]({ headers: headers });
+            var options = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["RequestOptions"]({ headers: headers });
             return options;
             // let headers = new Headers();
             // // headers.append('Content-Type', 'application/json');
@@ -222,10 +226,10 @@ var BlogService = (function () {
 }());
 BlogService = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["Http"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["Http"]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_http__["Http"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_http__["Http"]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_common__["Location"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_common__["Location"]) === "function" && _b || Object])
 ], BlogService);
 
-var _a;
+var _a, _b;
 //# sourceMappingURL=blog.service.js.map
 
 /***/ }),

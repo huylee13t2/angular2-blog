@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { Location }   from '@angular/common';
+import {DOCUMENT} from '@angular/platform-browser';
 import { Http, Response, Headers, Request ,RequestOptions ,RequestMethod } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
@@ -13,10 +15,18 @@ export class BlogService{
 	private headers = new Headers({
 		'Content-Type': 'application/json; charset=utf-8',
 	});
-	private url_http = 'http://127.0.0.1:2000/';
+	private url_http : string;
+	// private url_http = 'http://127.0.0.1:2000/';
 	private urlAllBlog = this.url_http + '/blogs/all-blogs';
 
-	constructor(private http : Http){}
+	constructor(
+		private http : Http,
+		location: Location,
+		// private document, 
+		){
+		this.url_http = window.location.origin + '/';
+		console.log(this.url_http)
+	}
 
 	// loginGoogle
 	loginGoogle() : Promise<any>{
@@ -65,11 +75,11 @@ export class BlogService{
 		const url = `${this.url_http}u/profile/${id}/updated/`;
 
 		let fd: FormData = new FormData();
-        fd.append('username', data.username);
-        fd.append('fullname', data.fullname);
-        fd.append('gender', data.gender);
-        fd.append('birthday', birthday);
-        fd.append('image', data.image);
+		fd.append('username', data.username);
+		fd.append('fullname', data.fullname);
+		fd.append('gender', data.gender);
+		fd.append('birthday', birthday);
+		fd.append('image', data.image);
 		return this.http.post(url, fd).toPromise().then(response => response.json().result).catch(this.handleError);
 	}
 
