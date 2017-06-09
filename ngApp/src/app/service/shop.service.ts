@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Location }   from '@angular/common';
 import { Http, Response, Headers, Request ,RequestOptions ,RequestMethod } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
@@ -13,9 +14,13 @@ export class ShopService{
 	private headers = new Headers({
 		'Content-Type': 'application/json; charset=utf-8',
 	});
-	private url_http = 'http://127.0.0.1:2000/';
+	// private url_http = 'http://127.0.0.1:2000/';
+	private url_http : string;
 
-	constructor(private http : Http){}
+	constructor(private http : Http, location: Location,){
+		this.url_http = window.location.origin + '/';
+		console.log(this.url_http)
+	}
 
 	// loginGoogle
 	loginGoogle() : Promise<any>{

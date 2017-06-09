@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Location }   from '@angular/common';
 import { Router } from '@angular/router';
 import { Http, Headers, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
@@ -9,12 +10,17 @@ export class AuthService {
     constructor(
         private http: Http,
         private router: Router,
-    ) { }
+        location: Location,
+    ) { 
+        this.url_http = window.location.origin + '/';
+        console.log(this.url_http)
+    }
 
-    private http_url = 'http://localhost:2000/';
+    // private http_url = 'http://localhost:2000/';
+    private url_http : string;
 
     login(username: string, password: string) {
-        const url = this.http_url + 'accounts/login/';
+        const url = this.url_http + 'accounts/login/';
 
         let fd: any = new FormData();
         fd.append('username', username);

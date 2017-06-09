@@ -1,21 +1,26 @@
 import { Injectable } from '@angular/core';
+import { Location }   from '@angular/common';
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
 
 import { User } from '../_models/index';
 
 @Injectable()
 export class UserService {
-    constructor(private http: Http) { }
+    constructor(private http: Http, location: Location,) { 
+        this.url_http = window.location.origin + '/';
+        console.log(this.url_http)
+    }
 
     private handleError(error: any): Promise<any> {
         console.error('An error occurred', error); // for demo purposes only
         return Promise.reject(error.message || error);
     }
 
-    private http_url = 'http://localhost:2000/';
+    // private http_url = 'http://localhost:2000/';
+    private url_http : string;
 
     getUser(username : string) : Promise<number>{
-        let url = this.http_url + 'profile/?username=' + username;
+        let url = this.url_http + 'profile/?username=' + username;
         return this.http.get(url).toPromise().then(res => res.json().data).catch(this.handleError);
     }
 
@@ -28,7 +33,7 @@ export class UserService {
         fd.append('birthday', birthday);
         fd.append('image', data.image);
         // const url = `${this.url_http}blogs/updated/${blog.id}/`;
-        const url = this.http_url + 'profile/updated/';
+        const url = this.url_http + 'profile/updated/';
         // return this.http.post(url, fd, {headers: this.headers}).toPromise().then(() => blog).catch(this.handleError);
         return this.http.post(url, fd).toPromise().then(res => res.json().result);
     }
@@ -42,7 +47,7 @@ export class UserService {
     }
 
     create(user: User) {
-        const url = this.http_url + 'accounts/register/';
+        const url = this.url_http + 'accounts/register/';
         return this.http.post(url, user, this.jwt()).map((response: Response) => response.json());
     }
 
