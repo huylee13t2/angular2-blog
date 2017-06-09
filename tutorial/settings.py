@@ -27,7 +27,7 @@ SECRET_KEY = 'd8pgk1)upxgd1ds5r2d(d50@w8tuy5--)#z)&4vse)ug*l9(ie'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['http://localhost:4200']
+ALLOWED_HOSTS = ['http://localhost:4200', 'http://localhost:2000']
 
 
 # Application definition
@@ -71,7 +71,8 @@ CORS_ORIGIN_WHITELIST = (
     'google.com',
     'hostname.example.com',
     'localhost:4200',
-    '127.0.0.1:8000'
+    'localhost:2000',
+    '127.0.0.1:2000'
 )
 
 CORS_ALLOW_METHODS = (
@@ -110,7 +111,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(BASE_DIR, 'ngApp')
+            os.path.join(BASE_DIR, 'static')
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -181,18 +182,18 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
-STATIC_URL = '/ngApp/'
+STATIC_URL = '/static/dist/'
 STATIC_ROOT = 'staticfiles'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'ngApp'),
+    os.path.join(BASE_DIR, 'static/dist'),
     os.path.join(BASE_DIR, '.tmp/serve'),
     os.path.join(BASE_DIR, 'bower_components'),
     os.path.join(BASE_DIR, 'node_modules'),
 ]
 
 
-MEDIA_URL = 'ngApp/dist/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'ngApp/dist/assets/images')
+MEDIA_URL = 'static/dist/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/dist/assets/images')
 
 
 LOGIN_REDIRECT_URL = '/'

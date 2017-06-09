@@ -32,7 +32,7 @@ const routes: Routes = [
     	component: RegisterComponent
     },
     {
-        path: '',
+        path: 'home',
         component: BlogsComponent,
         canActivate: [AuthGuard]
     },
@@ -86,7 +86,7 @@ const routes: Routes = [
         canActivate: [AuthGuard]
     },
     
-    { path: '**', redirectTo: '' }
+    { path: '**', redirectTo: 'home' }
 ];
 
 @NgModule({

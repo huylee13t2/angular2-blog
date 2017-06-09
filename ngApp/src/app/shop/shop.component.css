@@ -76,6 +76,10 @@
 	margin: 0;
 	margin-top: 5px;	
 }
+.content .like{
+	width: 50%;
+	float: left;
+}
 .buy{
 	position: absolute;
 	right: 15px;
