@@ -192,8 +192,8 @@ STATICFILES_DIRS = [
 ]
 
 
-MEDIA_URL = '../assets/'
-MEDIA_ROOT = os.path.join(BASE_DIR, '../assets/images')
+MEDIA_URL = 'static/dist/assets/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/dist/assets/images')
 
 
 LOGIN_REDIRECT_URL = '/'
